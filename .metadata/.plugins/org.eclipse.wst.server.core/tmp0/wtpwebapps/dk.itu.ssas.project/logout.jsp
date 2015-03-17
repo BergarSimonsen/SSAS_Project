@@ -7,6 +7,8 @@
 		session.setAttribute("username", null);
 		session = null;
 	}
+
+response.sendRedirect("index.jsp");
 %>
 <html>
 <head>
@@ -14,5 +16,6 @@
 </head>
 <body>
 	<h1> Successfully logged out! </h1>
+	<a href="index.jsp"> login </a>
 </body>
 </html>
