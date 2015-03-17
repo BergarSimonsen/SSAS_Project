@@ -1,0 +1,9 @@
+package dk.itu.ssas.project;
+
+import javax.servlet.http.HttpSession;
+
+public class Utils {
+	public static boolean isSessionValid(HttpSession session)) {
+		
+	}
+}
