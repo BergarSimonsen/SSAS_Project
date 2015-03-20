@@ -8,4 +8,6 @@ public class Utils {
 		if(session.getAttribute("username") == null || session.getAttribute("username").toString().length() == 0) return false;
 		return true;
 	}
+	
+	public static final String TITLE = "SSAS Photo Sharing Webapp";
 }

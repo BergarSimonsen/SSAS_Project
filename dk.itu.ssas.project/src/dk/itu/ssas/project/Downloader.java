@@ -2,6 +2,7 @@ package dk.itu.ssas.project;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,7 +21,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Downloader")
 public class Downloader extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	
+	private final String SELECT = "SELECT jpeg FROM images WHERE id = ?";
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -38,8 +41,10 @@ public class Downloader extends HttpServlet {
 		{
 			Connection con = DB.getConnection();
 			String image_id = request.getParameter("image_id");
-			Statement st = con.createStatement();
-			ResultSet image = st.executeQuery("SELECT jpeg FROM images WHERE id = " + image_id);
+			
+			PreparedStatement st = con.prepareStatement(SELECT);
+			st.setString(1, image_id);
+			ResultSet image = st.executeQuery();
 			image.next();
 			byte[] content = image.getBytes("jpeg");
 			response.setContentType("image/jpeg");

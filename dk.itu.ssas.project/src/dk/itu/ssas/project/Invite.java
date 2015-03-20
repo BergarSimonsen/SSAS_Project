@@ -2,6 +2,7 @@ package dk.itu.ssas.project;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -17,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Invite")
 public class Invite extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private final String INSERT = "INSERT INTO perms (image_id, user_id) SELECT ?, users.id FROM users WHERE users.username = ?";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,14 +38,10 @@ public class Invite extends HttpServlet {
 		try
 		{
 			Connection con = DB.getConnection();
-			String sql = 
-				"INSERT INTO perms (image_id, user_id) " + 
-				"SELECT " + request.getParameter("image_id") + ", users.id " +
-		    	"FROM users " +
-			    "WHERE users.username = '" + request.getParameter("other") + "'";
-			System.out.println(sql);
-			Statement st = con.createStatement();
-			st.executeUpdate(sql);
+			PreparedStatement st = con.prepareStatement(INSERT);
+			st.setString(1, request.getParameter("image_id"));
+			st.setString(2, request.getParameter("other"));
+			st.executeUpdate();
 					
 			response.sendRedirect("main.jsp");
 		}

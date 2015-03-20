@@ -43,31 +43,19 @@ ul {
 	final String SELECT_VIEWERS = "SELECT users.username FROM users INNER JOIN perms WHERE users.id = perms.user_id AND perms.image_id = ?";
 	final String SELECT_COMMENTS = "SELECT comments.comment, users.username FROM comments INNER JOIN users WHERE users.id = comments.user_id AND comments.image_id = ?";
 	
-// 	ResultSet comments = st2.executeQuery(
-//         	"SELECT comments.comment, users.username " + 
-//             "FROM comments INNER JOIN users " + 
-//             "WHERE users.id = comments.user_id " +
-//             "AND comments.image_id = " + image_id
-//         );	
-
 	Connection con = DB.getConnection();
 	PreparedStatement st = con.prepareStatement(SELECT_IMAGE);
 	PreparedStatement st2 = con.prepareStatement(SELECT_OTHER);
+	PreparedStatement st3 = con.prepareStatement(SELECT_VIEWERS);
+	PreparedStatement st4 = con.prepareStatement(SELECT_COMMENTS);
+
 	st.setString(1, user);
 	ResultSet image_ids = st.executeQuery();
-//     Statement st = con.createStatement();
-//     Statement st2 = con.createStatement();
-//     ResultSet image_ids = st.executeQuery("SELECT DISTINCT image_id FROM perms WHERE perms.user_id = " + user);
-    while (image_ids.next()) {
+
+	while (image_ids.next()) {
     	  String image_id = image_ids.getString(1);
     	  st2.setString(1, image_id);
     	  ResultSet other = st2.executeQuery();
-//     	  ResultSet other = st2.executeQuery(
-//               "SELECT username " +
-//               "FROM users INNER JOIN images " + 
-//               "WHERE users.id = images.owner " +
-//               "AND   images.id = " + image_id
-//     	  );
     	  other.next();
     	  String other_name = other.getString(1);
   %>
@@ -75,15 +63,9 @@ ul {
 	   <img src="Downloader?image_id=<%= image_id %>" width="60%"><br>
 	    Shared with: 
 <%      
-		st2 = con.prepareStatement(SELECT_VIEWERS);
-	   	st2.setString(1, image_id);
-	   	ResultSet viewers = st2.executeQuery();
-// 		ResultSet viewers = st2.executeQuery(
-// 			"SELECT users.username " +
-// 		    "FROM users INNER JOIN perms " +
-// 			"WHERE users.id = perms.user_id " +
-// 		    "AND perms.image_id = " + image_id
-// 		);
+		st3 = con.prepareStatement(SELECT_VIEWERS);
+	   	st3.setString(1, image_id);
+	   	ResultSet viewers = st3.executeQuery();
 		while (viewers.next()) {
 			String sharee = viewers.getString(1);
 			if (sharee.equals (username)) {
@@ -96,16 +78,10 @@ ul {
 %>
 		<br><br>
 <%
-		st2 = con.prepareStatement(SELECT_COMMENTS);
-		st2.setString(1, image_id);
-		ResultSet comments = st2.executeQuery();
+		st4 = con.prepareStatement(SELECT_COMMENTS);
+		st4.setString(1, image_id);
+		ResultSet comments = st4.executeQuery();
 		
-//         ResultSet comments = st2.executeQuery(
-//         	"SELECT comments.comment, users.username " + 
-//             "FROM comments INNER JOIN users " + 
-//             "WHERE users.id = comments.user_id " +
-//             "AND comments.image_id = " + image_id
-//         );	
         while (comments.next()) {
 %>
 		From <%= comments.getString(2) %>: "<%= comments.getString(1) %>"<br>

@@ -70,11 +70,12 @@ public class Uploader extends HttpServlet {
 			rs.next();
 			String image_id = rs.getString(1);
 
-			sql = "INSERT INTO perms (image_id, user_id) values (" +
-					image_id + ", " + request.getSession().getAttribute("user") + ")";
+			sql = "INSERT INTO perms (image_id, user_id) values (?, ?)";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, image_id);
+			st.setString(2, request.getSession().getAttribute("user").toString());
+			st.executeUpdate();
 
-			con.createStatement().executeUpdate(sql);       
-	
 			response.sendRedirect("main.jsp");
 		} 
 		catch (SQLException | FileUploadException e) 
