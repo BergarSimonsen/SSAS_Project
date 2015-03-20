@@ -60,7 +60,7 @@ public final class logout_jsp extends org.apache.jasper.runtime.HttpJspBase
 		session = null;
 	}
 
-	
+response.sendRedirect("index.jsp");
 
       out.write("\n");
       out.write("<html>\n");
@@ -69,10 +69,6 @@ public final class logout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("\t<h1> Successfully logged out! </h1>\n");
-      out.write("\t");
- Thread.sleep(3000);
-	response.sendRedirect("index.jsp"); 
-      out.write("\n");
       out.write("\t<a href=\"index.jsp\"> login </a>\n");
       out.write("</body>\n");
       out.write("</html>");

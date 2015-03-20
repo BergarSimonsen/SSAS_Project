@@ -6,7 +6,6 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5Converter {
 	public static String toMd5(String s) {
-		String plaintext = "your text here";
 		MessageDigest m;
 		String hashtext = "";
 		try {

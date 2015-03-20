@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" 
+    import = "java.sql.*"
+    import = "dk.itu.ssas.project.DB"
+    import = "dk.itu.ssas.project.MD5Converter"
+%>
+<%
+    String user = request.getParameter("username");   
+    String pwd = request.getParameter("password");
+    
+    System.out.println(user != null ? user : "user is null");
+    
+    pwd = MD5Converter.toMd5(pwd); // convert password to md5 hash
+   
+    Connection con = DB.getConnection();
+//     Statement st = con.createStatement();
+//     ResultSet rs = st.executeQuery("SELECT id FROM users WHERE username='" + user + "' AND " + "password='" + pwd + "'");
+    
+    String sql = "SELECT id FROM users WHERE username='?' AND " + "password='?'";
+    PreparedStatement statement = con.prepareStatement(sql);
+    statement.setString(1, user);
+    statement.setString(2, pwd);
+    ResultSet rs = statement.executeQuery();
+    
+    
+//     String selectSQL = "SELECT USER_ID, USERNAME FROM DBUSER WHERE USER_ID = ?";
+//     String sql = "INSERT INTO images (jpeg, owner) values (?, ?)";
+// 	PreparedStatement statement = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+// 	statement.setBlob(1, iis);
+// 	statement.setString(2, request.getSession().getAttribute("user").toString());
+// 	statement.executeUpdate();
+    
+    if (rs.next()) {
+    	// Have a result; user is authenticated.
+    	session.setAttribute("user", rs.getString(1));
+    	session.setAttribute("username", user);
+    	response.sendRedirect("main.jsp");
+    } else {
+    	// No result; user failed to authenticate; try again.
+    	response.sendRedirect("index.jsp?login_failure=1");
+    }
+%>

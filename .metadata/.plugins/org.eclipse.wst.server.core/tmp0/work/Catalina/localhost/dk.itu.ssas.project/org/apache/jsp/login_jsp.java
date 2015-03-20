@@ -58,11 +58,17 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 
     String user = request.getParameter("username");   
     String pwd = request.getParameter("password");
+    
     pwd = MD5Converter.toMd5(pwd); // convert password to md5 hash
    
     Connection con = DB.getConnection();
-    Statement st = con.createStatement();
-    ResultSet rs = st.executeQuery("SELECT id FROM users WHERE username='" + user + "' AND " + "password='" + pwd + "'");
+    
+    String sql = "SELECT id FROM users WHERE username= ? AND password= ?";
+    PreparedStatement statement = con.prepareStatement(sql);
+    statement.setString(1, user);
+    statement.setString(2, pwd);
+    ResultSet rs = statement.executeQuery();
+    
     if (rs.next()) {
     	// Have a result; user is authenticated.
     	session.setAttribute("user", rs.getString(1));
