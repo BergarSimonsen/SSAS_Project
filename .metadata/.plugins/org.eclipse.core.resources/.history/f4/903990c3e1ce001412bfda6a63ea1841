@@ -13,6 +13,7 @@
     String user = request.getParameter("username");   
     String pwd = request.getParameter("password");
     pwd = MD5Converter.toMd5(pwd); // convert password to md5 hash
+   
     
     PreparedStatement statement = con.prepareStatement(SQL_SELECT);
     statement.setString(1, user);

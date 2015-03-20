@@ -5,8 +5,6 @@
     import = "dk.itu.ssas.project.MD5Converter"
 %>
 <%
-	final String SQL_SELECT = "SELECT id FROM users WHERE username= ? AND password= ?"; 
-
     Connection con = DB.getConnection();
 
     String user = request.getParameter("username");   
@@ -14,7 +12,9 @@
     
     pwd = MD5Converter.toMd5(pwd); // convert password to md5 hash
    
-    PreparedStatement statement = con.prepareStatement(SQL_SELECT);
+    
+    String sql = "SELECT id FROM users WHERE username= ? AND password= ?";
+    PreparedStatement statement = con.prepareStatement(sql);
     statement.setString(1, user);
     statement.setString(2, pwd);
     ResultSet rs = statement.executeQuery();

@@ -56,15 +56,16 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write('\n');
 
+	final String SQL_SELECT = "SELECT id FROM users WHERE username= ? AND password= ?"; 
+
+    Connection con = DB.getConnection();
+
     String user = request.getParameter("username");   
     String pwd = request.getParameter("password");
     
     pwd = MD5Converter.toMd5(pwd); // convert password to md5 hash
    
-    Connection con = DB.getConnection();
-    
-    String sql = "SELECT id FROM users WHERE username= ? AND password= ?";
-    PreparedStatement statement = con.prepareStatement(sql);
+    PreparedStatement statement = con.prepareStatement(SQL_SELECT);
     statement.setString(1, user);
     statement.setString(2, pwd);
     ResultSet rs = statement.executeQuery();
