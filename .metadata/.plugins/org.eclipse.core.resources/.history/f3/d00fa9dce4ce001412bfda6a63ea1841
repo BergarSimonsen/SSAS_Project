@@ -100,12 +100,12 @@ ul {
 		st2.setString(1, image_id);
 		ResultSet comments = st2.executeQuery();
 		
-//         ResultSet comments = st2.executeQuery(
-//         	"SELECT comments.comment, users.username " + 
-//             "FROM comments INNER JOIN users " + 
-//             "WHERE users.id = comments.user_id " +
-//             "AND comments.image_id = " + image_id
-//         );	
+        ResultSet comments = st2.executeQuery(
+        	"SELECT comments.comment, users.username " + 
+            "FROM comments INNER JOIN users " + 
+            "WHERE users.id = comments.user_id " +
+            "AND comments.image_id = " + image_id
+        );	
         while (comments.next()) {
 %>
 		From <%= comments.getString(2) %>: "<%= comments.getString(1) %>"<br>

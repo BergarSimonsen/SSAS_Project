@@ -41,14 +41,6 @@ ul {
 	final String SELECT_IMAGE = "SELECT DISTINCT image_id FROM perms WHERE perms.user_id = ?";
 	final String SELECT_OTHER = "SELECT username FROM users INNER JOIN images WHERE users.id = images.owner AND  images.id = ?";
 	final String SELECT_VIEWERS = "SELECT users.username FROM users INNER JOIN perms WHERE users.id = perms.user_id AND perms.image_id = ?";
-	final String SELECT_COMMENTS = "SELECT comments.comment, users.username FROM comments INNER JOIN users WHERE users.id = comments.user_id AND comments.image_id = ?";
-	
-// 	ResultSet comments = st2.executeQuery(
-//         	"SELECT comments.comment, users.username " + 
-//             "FROM comments INNER JOIN users " + 
-//             "WHERE users.id = comments.user_id " +
-//             "AND comments.image_id = " + image_id
-//         );	
 
 	Connection con = DB.getConnection();
 	PreparedStatement st = con.prepareStatement(SELECT_IMAGE);
@@ -78,12 +70,12 @@ ul {
 		st2 = con.prepareStatement(SELECT_VIEWERS);
 	   	st2.setString(1, image_id);
 	   	ResultSet viewers = st2.executeQuery();
-// 		ResultSet viewers = st2.executeQuery(
-// 			"SELECT users.username " +
-// 		    "FROM users INNER JOIN perms " +
-// 			"WHERE users.id = perms.user_id " +
-// 		    "AND perms.image_id = " + image_id
-// 		);
+		ResultSet viewers = st2.executeQuery(
+			"SELECT users.username " +
+		    "FROM users INNER JOIN perms " +
+			"WHERE users.id = perms.user_id " +
+		    "AND perms.image_id = " + image_id
+		);
 		while (viewers.next()) {
 			String sharee = viewers.getString(1);
 			if (sharee.equals (username)) {
@@ -96,16 +88,14 @@ ul {
 %>
 		<br><br>
 <%
-		st2 = con.prepareStatement(SELECT_COMMENTS);
-		st2.setString(1, image_id);
-		ResultSet comments = st2.executeQuery();
 		
-//         ResultSet comments = st2.executeQuery(
-//         	"SELECT comments.comment, users.username " + 
-//             "FROM comments INNER JOIN users " + 
-//             "WHERE users.id = comments.user_id " +
-//             "AND comments.image_id = " + image_id
-//         );	
+		
+        ResultSet comments = st2.executeQuery(
+        	"SELECT comments.comment, users.username " + 
+            "FROM comments INNER JOIN users " + 
+            "WHERE users.id = comments.user_id " +
+            "AND comments.image_id = " + image_id
+        );	
         while (comments.next()) {
 %>
 		From <%= comments.getString(2) %>: "<%= comments.getString(1) %>"<br>

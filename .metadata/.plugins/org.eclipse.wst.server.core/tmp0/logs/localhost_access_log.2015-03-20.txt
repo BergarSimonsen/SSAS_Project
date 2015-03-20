@@ -72,3 +72,8 @@
 127.0.0.1 - - [20/Mar/2015:10:28:29 +0100] "GET /dk.itu.ssas.project/main.jsp HTTP/1.1" 200 644
 127.0.0.1 - - [20/Mar/2015:10:28:39 +0100] "GET /dk.itu.ssas.project/logout.jsp HTTP/1.1" 302 -
 127.0.0.1 - - [20/Mar/2015:10:28:39 +0100] "GET /dk.itu.ssas.project/index.jsp HTTP/1.1" 200 824
+127.0.0.1 - - [20/Mar/2015:10:38:55 +0100] "GET / HTTP/1.1" 404 955
+127.0.0.1 - - [20/Mar/2015:10:38:55 +0100] "GET /dk.itu.ssas.project/ HTTP/1.1" 200 824
+127.0.0.1 - - [20/Mar/2015:10:39:01 +0100] "GET /dk.itu.ssas.project/login.jsp?username=SSAS&password=SSAS HTTP/1.1" 302 -
+127.0.0.1 - - [20/Mar/2015:10:39:02 +0100] "GET /dk.itu.ssas.project/main.jsp HTTP/1.1" 200 1372
+127.0.0.1 - - [20/Mar/2015:10:39:02 +0100] "GET /dk.itu.ssas.project/Downloader?image_id=1 HTTP/1.1" 200 767538
