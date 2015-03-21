@@ -30,13 +30,6 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 public class Uploader extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Uploader() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

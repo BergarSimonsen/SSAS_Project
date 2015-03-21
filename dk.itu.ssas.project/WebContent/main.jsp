@@ -12,7 +12,7 @@
 		username = session.getAttribute("username").toString();
 	
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,13 +28,14 @@ ul {
 </style>
 </head>
 <body>
-<p>Hello, <%= username %>!
+<p>Hello, <%= username %>! <a href="logout.jsp">Log out</a>
+
 <p><form method="post" enctype="multipart/form-data" action="Uploader">
 	Add a picture: 
 	<input type="file" name="pic" accept="jpeg">
 	<input type="submit" value="Upload!">
 </form>
-<a href="logout.jsp">Log out</a>
+
 <ul>
 <%
 
@@ -71,9 +72,8 @@ ul {
 			if (sharee.equals (username)) {
 				continue;
 			}
-%>
-		<%= sharee %>
-<% 
+			
+			out.println(sharee);
 		}			
 %>
 		<br><br>
@@ -84,7 +84,7 @@ ul {
 		
         while (comments.next()) {
 %>
-		From <%= comments.getString(2) %>: "<%= comments.getString(1) %>"<br>
+			From <b><%= comments.getString(2) %></b>: "<%= comments.getString(1) %>"<br>
 <%
         }
  %>

@@ -21,15 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Downloader extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private final String SELECT = "SELECT jpeg FROM images WHERE id = ?";
-	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Downloader() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private static final String SELECT_IMAGE = "SELECT jpeg FROM images WHERE id = ?";
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -41,7 +33,7 @@ public class Downloader extends HttpServlet {
 			Connection con = DB.getConnection();
 			String image_id = request.getParameter("image_id");
 			
-			PreparedStatement st = con.prepareStatement(SELECT);
+			PreparedStatement st = con.prepareStatement(SELECT_IMAGE);
 			st.setString(1, image_id);
 			ResultSet image = st.executeQuery();
 			image.next();
@@ -51,7 +43,7 @@ public class Downloader extends HttpServlet {
 			response.getOutputStream().write(content);		
 		}
 		catch (SQLException e) {
-			throw new ServletException("SQL malfunction.", e);
+			throw new ServletException(e);
 		}
 	}
 }

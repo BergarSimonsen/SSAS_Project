@@ -23,7 +23,7 @@
     	// Have a result; username already taken.  	
     	response.sendRedirect("index.jsp?create_failure=1");       
     } else {
-    	// No result; user failed to authenticate; try again.
+    	// No result; The new user is created 
     	statement = con.prepareStatement(SQL_INSERT);
     	statement.setString(1, user);
 		statement.setString(2, pwd);
