@@ -33,6 +33,7 @@ ul {
 <p><form method="post" enctype="multipart/form-data" action="Uploader">
 	Add a picture: 
 	<input type="file" name="pic" accept="jpeg">
+	<input type="hidden" name="token" value="<%= session.getAttribute("secret") %>">		
 	<input type="submit" value="Upload!">
 </form>
 
@@ -94,12 +95,14 @@ ul {
             <input type="submit" value="Post comment!">
             <input type="hidden" name="user_id" value='<%= user %>'>
             <input type="hidden" name="image_id" value='<%= image_id %>'>
+            <input type="hidden" name="token" value="<%= session.getAttribute("secret") %>">		
    		 </form>	
    		<br>
    		<form action="Invite" method="post">
    			<input type='text' name='other'>
             <input type="submit" value="Share image!">
             <input type="hidden" name="image_id" value="<%= image_id %>">
+            <input type="hidden" name="token" value="<%= session.getAttribute("secret") %>">		
    		</form>
    		<br>
 	 </li>       

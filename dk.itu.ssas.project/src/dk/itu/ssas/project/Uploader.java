@@ -35,6 +35,18 @@ public class Uploader extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
+	//check the form token
+		
+//		if (!request.getParameter("token").equals(request.getSession().getAttribute("secret"))){
+//			throw new ServletException("Stop - Where did you get that form?");
+//		}
+					
+	//check the user is authorized
+		
+		
+	//do the upload
+
 		try {
 			// Create a factory for disk-based file items
 			DiskFileItemFactory factory = new DiskFileItemFactory();

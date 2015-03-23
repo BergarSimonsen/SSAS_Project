@@ -24,8 +24,19 @@ public class Invite extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	//check the form token
+		
+		if (!request.getParameter("token").equals(request.getSession().getAttribute("secret"))){
+			throw new ServletException("Stop - Where did you get that form?");
+		}
+					
+	//check the user is authorized
+		
+		
+	//do the insert	
+		
 		try
 		{
 			Connection con = DB.getConnection();
