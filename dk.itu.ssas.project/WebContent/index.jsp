@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" 
-    import = "dk.itu.ssas.project.Utils"%>
+    import = "dk.itu.ssas.project.Utils"
+%>
+<%
+
+	if (session != null){
+		if (session.isNew()){
+		   	session.setAttribute("username", "anonymous");
+		   	session.setAttribute("secret", Utils.getRandomSecret());
+		}
+	}
+	
+
+%>
+    
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,7 +28,8 @@
 	<% } %>
 	<form method="post" action="Login">
 		Username: <input type="text" name="username"><br> 
-		Password: <input type="text" name="password"><br>		
+		Password: <input type="text" name="password"><br>
+		<input type="hidden" name="token" value="<%= session.getAttribute("secret") %>">		
 		<input type="reset" value="Reset">
 		<input type="submit" value="Login">		
 	</form>
@@ -26,6 +40,7 @@
 	<form method="post" action="Register">
 		Username: <input type="text" name="username" /><br> 
 		Password: <input type="password" name="password" /><br>
+		<input type="hidden" name="token" value="<%= session.getAttribute("secret") %>">
 		<input type="reset" value="Reset">
 		<input type="submit" value="Create">
 	</form>

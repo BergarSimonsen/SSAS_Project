@@ -41,7 +41,7 @@ public class Uploader extends HttpServlet {
 //		if (!request.getParameter("token").equals(request.getSession().getAttribute("secret"))){
 //			throw new ServletException("Stop - Where did you get that form?");
 //		}
-					
+		
 	//check the user is authorized
 		
 		
@@ -87,7 +87,7 @@ public class Uploader extends HttpServlet {
 			st.setString(2, request.getSession().getAttribute("user").toString());
 			st.executeUpdate();
 
-			response.sendRedirect("main.jsp");
+			//response.sendRedirect("main.jsp");
 		} 
 		catch (SQLException | FileUploadException e) 
 		{

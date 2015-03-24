@@ -26,6 +26,14 @@ public class Register extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
+		
+	//check the form token
+		
+		if (!request.getParameter("token").equals(session.getAttribute("secret"))){
+			throw new ServletException("Stop - Where did you get that form?");
+		}
+		
+	//create user
 
 		try {
 			
