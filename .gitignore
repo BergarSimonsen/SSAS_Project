@@ -6,8 +6,8 @@
 
 /Servers/
 /.metadata/
-*.classpath
-*.project
+.classpath
+.project
 
 /dk.itu.ssas.project/.settings
 /dk.itu.ssas.project/build

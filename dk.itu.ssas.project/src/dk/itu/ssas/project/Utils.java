@@ -19,7 +19,7 @@ public class Utils {
 	
 	/**
 	 * Generates a random string, which can be used for the secret every user has in his/her session.
-	 *  
+	 * 
 	 * @return String
 	 */
 	public static String getRandomSecret() {
