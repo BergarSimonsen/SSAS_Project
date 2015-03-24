@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="28" version="2.0">
+<workbench progressCount="55" version="2.0">
 <workbenchAdvisor/>
 <window height="767" maximized="true" width="1018" x="2302" y="24">
 <fastViewData fastViewLocation="1024"/>
@@ -10,9 +10,9 @@
 <coolItem id="group.file" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="144" y="30"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="156" y="30"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="88" y="30"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="30"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="60" y="30"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="60" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="68" y="30"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="68" y="30"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -20,7 +20,9 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="232" y="30"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jst.jsp.core.jspsource.source" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -34,26 +36,47 @@
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DB.java" partName="DB.java" path="/home/SSAS/development/SSAS_Project/dk.itu.ssas.project/src/dk/itu/ssas/project/DB.java" title="DB.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/DB.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/dk.itu.ssas.project/src/dk/itu/ssas/project/DB.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Comment.java" partName="Comment.java" path="/home/SSAS/development/SSAS_Project/dk.itu.ssas.project/src/dk/itu/ssas/project/Comment.java" title="Comment.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/Comment.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/dk.itu.ssas.project/src/dk/itu/ssas/project/Comment.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="13" selectionOffset="148" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="409" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Uploader.java" partName="Uploader.java" path="/home/SSAS/development/SSAS_Project/dk.itu.ssas.project/src/dk/itu/ssas/project/Uploader.java" title="Uploader.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/Uploader.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Downloader.java" partName="Downloader.java" path="/home/SSAS/development/SSAS_Project/dk.itu.ssas.project/src/dk/itu/ssas/project/Downloader.java" title="Downloader.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/Downloader.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/dk.itu.ssas.project/src/dk/itu/ssas/project/Downloader.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="802" selectionTopPixel="302"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Invite.java" partName="Invite.java" path="/home/SSAS/development/SSAS_Project/dk.itu.ssas.project/src/dk/itu/ssas/project/Invite.java" title="Invite.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/Invite.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/dk.itu.ssas.project/src/dk/itu/ssas/project/Invite.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="815" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Uploader.java" partName="Uploader.java" path="/home/SSAS/development/SSAS_Project/dk.itu.ssas.project/src/dk/itu/ssas/project/Uploader.java" title="Uploader.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/Uploader.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/dk.itu.ssas.project/src/dk/itu/ssas/project/Uploader.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="504" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="context.xml" partName="context.xml" path="/home/SSAS/development/SSAS_Project/dk.itu.ssas.project/WebContent/META-INF/context.xml" title="context.xml" tooltip="dk.itu.ssas.project/WebContent/META-INF/context.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/dk.itu.ssas.project/WebContent/META-INF/context.xml"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="MANIFEST.MF" partName="MANIFEST.MF" path="/home/SSAS/development/SSAS_Project/dk.itu.ssas.project/WebContent/META-INF/MANIFEST.MF" title="MANIFEST.MF" tooltip="dk.itu.ssas.project/WebContent/META-INF/MANIFEST.MF" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/dk.itu.ssas.project/WebContent/META-INF/MANIFEST.MF"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="39" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="web.xml" partName="web.xml" path="/home/SSAS/development/SSAS_Project/dk.itu.ssas.project/WebContent/WEB-INF/web.xml" title="web.xml" tooltip="dk.itu.ssas.project/WebContent/WEB-INF/web.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/dk.itu.ssas.project/WebContent/WEB-INF/web.xml"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
 <viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
 </view>
 <view id="org.eclipse.ui.views.TaskList" partName="Tasks">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
@@ -71,7 +94,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="org.eclipse.ui.resourcePerspective">
+<perspectives activePart="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" activePerspective="org.eclipse.ui.resourcePerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -109,6 +132,7 @@
 <view id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
@@ -133,16 +157,18 @@
 </info>
 <info part="org.eclipse.gef.ui.palette_view" ratio="0.20227766" ratioLeft="373" ratioRight="1471" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottomRight" ratio="0.6599064" ratioLeft="423" ratioRight="218" relationship="4" relative="org.eclipse.gef.ui.palette_view">
-<folder activePageID="org.eclipse.ui.views.TaskList" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.team.ui.GenericHistoryView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.1590909" ratioLeft="119" ratioRight="629" relationship="2" relative="org.eclipse.gef.ui.palette_view"/>
-<info folder="true" part="bottomLeft" ratio="0.49921995" ratioLeft="320" ratioRight="321" relationship="4" relative="topLeft">
+<info folder="true" part="bottomLeft" ratio="0.66910994" ratioLeft="639" ratioRight="316" relationship="4" relative="topLeft">
 <folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
@@ -158,24 +184,164 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/dk.itu.ssas.project/src/dk/itu/ssas/project/DB.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/dk.itu.ssas.project/src/dk/itu/ssas/project/Comment.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Servers/Tomcat v7.0 Server at localhost (2)-config/web.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/dk.itu.ssas.project/src/dk/itu/ssas/project/DB.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/dk.itu.ssas.project/src/dk/itu/ssas/project/Downloader.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/dk.itu.ssas.project/src/dk/itu/ssas/project/Invite.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/dk.itu.ssas.project/src/dk/itu/ssas/project/MD5Converter.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/dk.itu.ssas.project/src/dk/itu/ssas/project/Uploader.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/dk.itu.ssas.project/WebContent/META-INF/context.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/dk.itu.ssas.project/WebContent/META-INF/MANIFEST.MF"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/dk.itu.ssas.project/WebContent/WEB-INF/web.xml"/>
 </editors>
-<item historyLabel="DB.java" index="0">
+<item historyLabel="Comment.java" index="0">
+<position/>
+</item>
+<item historyLabel="Comment.java" index="0">
+<position/>
+</item>
+<item historyLabel="Comment.java" index="0">
+<position/>
+</item>
+<item historyLabel="Comment.java" index="0">
+<position/>
+</item>
+<item historyLabel="Comment.java" index="0">
+<position/>
+</item>
+<item historyLabel="Comment.java" index="0">
+<position/>
+</item>
+<item historyLabel="Comment.java" index="0">
+<position/>
+</item>
+<item historyLabel="DB.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Comment.java" index="1">
-<position info="not_deleted" x="148" y="13"/>
+<item historyLabel="Downloader.java" index="2">
+<position info="not_deleted" x="1540" y="0"/>
 </item>
-<item historyLabel="web.xml" index="2">
+<item historyLabel="Invite.java" index="3">
+<position info="not_deleted" x="1409" y="0"/>
+</item>
+<item historyLabel="MD5Converter.java" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Comment.java" index="1">
-<position info="not_deleted" x="148" y="13"/>
+<item historyLabel="Uploader.java" index="5">
+<position info="not_deleted" x="2853" y="0"/>
 </item>
-<item active="true" historyLabel="Uploader.java" index="3">
+<item historyLabel="DB.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="DB.java" index="1">
+<position info="not_deleted" x="285" y="0"/>
+</item>
+<item historyLabel="DB.java" index="1">
+<position info="not_deleted" x="336" y="0"/>
+</item>
+<item historyLabel="Uploader.java" index="5">
+<position info="not_deleted" x="2853" y="0"/>
+</item>
+<item historyLabel="MD5Converter.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Invite.java" index="3">
+<position info="not_deleted" x="1409" y="0"/>
+</item>
+<item historyLabel="Downloader.java" index="2">
+<position info="not_deleted" x="1540" y="0"/>
+</item>
+<item historyLabel="Downloader.java" index="2">
+<position/>
+</item>
+<item historyLabel="Downloader.java" index="2">
+<position/>
+</item>
+<item historyLabel="Downloader.java" index="2">
+<position info="not_deleted" x="1336" y="0"/>
+</item>
+<item historyLabel="Invite.java" index="3">
+<position info="not_deleted" x="1409" y="0"/>
+</item>
+<item historyLabel="Invite.java" index="3">
+<position/>
+</item>
+<item historyLabel="Invite.java" index="3">
+<position/>
+</item>
+<item historyLabel="Invite.java" index="3">
+<position/>
+</item>
+<item historyLabel="Invite.java" index="3">
+<position/>
+</item>
+<item historyLabel="Invite.java" index="3">
+<position/>
+</item>
+<item historyLabel="Invite.java" index="3">
+<position/>
+</item>
+<item historyLabel="Invite.java" index="3">
+<position/>
+</item>
+<item historyLabel="MD5Converter.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Invite.java" index="3">
+<position/>
+</item>
+<item historyLabel="Uploader.java" index="5">
+<position info="not_deleted" x="2853" y="0"/>
+</item>
+<item historyLabel="Uploader.java" index="5">
+<position/>
+</item>
+<item historyLabel="Uploader.java" index="5">
+<position/>
+</item>
+<item historyLabel="Uploader.java" index="5">
+<position/>
+</item>
+<item historyLabel="Invite.java" index="3">
+<position/>
+</item>
+<item historyLabel="Downloader.java" index="2">
+<position/>
+</item>
+<item historyLabel="Comment.java" index="0">
+<position info="not_deleted" x="1027" y="0"/>
+</item>
+<item historyLabel="Downloader.java" index="2">
+<position info="not_deleted" x="1336" y="0"/>
+</item>
+<item historyLabel="Invite.java" index="3">
+<position info="not_deleted" x="1272" y="0"/>
+</item>
+<item historyLabel="Uploader.java" index="5">
+<position info="not_deleted" x="504" y="0"/>
+</item>
+<item historyLabel="Invite.java" index="3">
+<position info="not_deleted" x="815" y="0"/>
+</item>
+<item historyLabel="Downloader.java" index="2">
+<position info="not_deleted" x="802" y="0"/>
+</item>
+<item historyLabel="Comment.java" index="0">
+<position info="not_deleted" x="409" y="0"/>
+</item>
+<item historyLabel="context.xml" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MANIFEST.MF" index="7">
+<position info="not_deleted" x="39" y="0"/>
+</item>
+<item historyLabel="web.xml" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Comment.java" index="0">
+<position info="not_deleted" x="409" y="0"/>
+</item>
+<item active="true" historyLabel="web.xml" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
@@ -184,6 +350,10 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="topLeft"/>
+<trimItem IMemento.internal.id="bottomLeft"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
@@ -191,21 +361,55 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottomRight"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="web.xml" tooltip="dk.itu.ssas.project/WebContent/WEB-INF/web.xml">
+<persistable path="/dk.itu.ssas.project/WebContent/WEB-INF/web.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="MANIFEST.MF" tooltip="dk.itu.ssas.project/WebContent/META-INF/MANIFEST.MF">
+<persistable path="/dk.itu.ssas.project/WebContent/META-INF/MANIFEST.MF"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="context.xml" tooltip="dk.itu.ssas.project/WebContent/META-INF/context.xml">
+<persistable path="/dk.itu.ssas.project/WebContent/META-INF/context.xml"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Uploader.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/Uploader.java">
 <persistable path="/dk.itu.ssas.project/src/dk/itu/ssas/project/Uploader.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="web.xml" tooltip="Servers/Tomcat v7.0 Server at localhost (2)-config/web.xml">
-<persistable path="/Servers/Tomcat v7.0 Server at localhost (2)-config/web.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MD5Converter.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/MD5Converter.java">
+<persistable path="/dk.itu.ssas.project/src/dk/itu/ssas/project/MD5Converter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Invite.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/Invite.java">
+<persistable path="/dk.itu.ssas.project/src/dk/itu/ssas/project/Invite.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Downloader.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/Downloader.java">
+<persistable path="/dk.itu.ssas.project/src/dk/itu/ssas/project/Downloader.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DB.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/DB.java">
+<persistable path="/dk.itu.ssas.project/src/dk/itu/ssas/project/DB.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Comment.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/Comment.java">
 <persistable path="/dk.itu.ssas.project/src/dk/itu/ssas/project/Comment.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DB.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/DB.java">
-<persistable path="/dk.itu.ssas.project/src/dk/itu/ssas/project/DB.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="register.jsp" tooltip="dk.itu.ssas.project/WebContent/register.jsp">
+<persistable path="/dk.itu.ssas.project/WebContent/register.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="main.jsp" tooltip="dk.itu.ssas.project/WebContent/main.jsp">
+<persistable path="/dk.itu.ssas.project/WebContent/main.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="logout.jsp" tooltip="dk.itu.ssas.project/WebContent/logout.jsp">
+<persistable path="/dk.itu.ssas.project/WebContent/logout.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="login.jsp" tooltip="dk.itu.ssas.project/WebContent/login.jsp">
+<persistable path="/dk.itu.ssas.project/WebContent/login.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="index.jsp" tooltip="dk.itu.ssas.project/WebContent/index.jsp">
+<persistable path="/dk.itu.ssas.project/WebContent/index.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Utils.java" tooltip="dk.itu.ssas.project/src/dk/itu/ssas/project/Utils.java">
+<persistable path="/dk.itu.ssas.project/src/dk/itu/ssas/project/Utils.java"/>
 </file>
 </mruList>
 </workbench>
