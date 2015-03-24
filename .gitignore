@@ -5,12 +5,18 @@
 #ignoring eclipse stuff
 
 /Servers/
+/Servers2/
 /.metadata/
 *.classpath
 *.project
 
 /dk.itu.ssas.project/.settings
 /dk.itu.ssas.project/build
+
+/dk.itu.ssas.finalproject/.settings
+/dk.itu.ssas.finalproject/build
+
+
 
 #
 /bin/

@@ -1,0 +1,10 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<context>
+  <!-- Specify a JDBC datasource -->
+  <resource name="jdbc/testdb" auth="Container" type="javax.sql.DataSource" 
+            username="SSAS" password="SSAS" 
+            driverclassname="com.mysql.jdbc.driver" 
+            url="jdbc:mysql:localhost:3306:image_site_db" 
+            maxactive="10" maxidle="4">
+  </resource>
+</context>
