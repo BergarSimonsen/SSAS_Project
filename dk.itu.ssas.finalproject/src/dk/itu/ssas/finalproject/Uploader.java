@@ -1,4 +1,4 @@
-package dk.itu.ssas.finalproject;
+package dk.itu.ssas.project;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,70 +29,69 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 @WebServlet("/Uploader")
 public class Uploader extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
-	//check the form token
-		
-//		if (!request.getParameter("token").equals(request.getSession().getAttribute("secret"))){
-//			throw new ServletException("Stop - Where did you get that form?");
-//		}
-					
-	//check the user is authorized
-		
-		
-	//do the upload
 
-		try {
-			// Create a factory for disk-based file items
-			DiskFileItemFactory factory = new DiskFileItemFactory();
+		//check the form token
 
-			// Configure a repository (to ensure a secure temp location is used)
-			ServletContext servletContext = this.getServletConfig().getServletContext();
-			File repository = (File) servletContext.getAttribute("javax.servlet.context.tempdir");
-			factory.setRepository(repository);
+		//		if (!request.getParameter("token").equals(request.getSession().getAttribute("secret"))){
+		//			throw new ServletException("Stop - Where did you get that form?");
+		//		}
 
-			// Create a new file upload handler
-			ServletFileUpload upload = new ServletFileUpload(factory);
+		// check that the user is authorized
+		if(Utils.isSessionValid(request.getSession())) {
+			//do the upload
 
-			//alternative way to get a input stream.
-			FileItemIterator items2 = upload.getItemIterator(request);
-			FileItemStream fileStream = items2.next();
-			InputStream iis = fileStream.openStream();
-			
-			// Parse the request
-//			List<FileItem> items = upload.parseRequest(request);
-//			FileItem file = items.iterator().next();
-//			InputStream iis = file.getInputStream();
-			
-			Connection con = DB.getConnection();
+			try {
+				// Create a factory for disk-based file items
+				DiskFileItemFactory factory = new DiskFileItemFactory();
 
-			String sql = "INSERT INTO images (jpeg, owner) values (?, ?)";
-			PreparedStatement statement = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-			statement.setBlob(1, iis);
-			statement.setString(2, request.getSession().getAttribute("user").toString());
-			statement.executeUpdate();
+				// Configure a repository (to ensure a secure temp location is used)
+				ServletContext servletContext = this.getServletConfig().getServletContext();
+				File repository = (File) servletContext.getAttribute("javax.servlet.context.tempdir");
+				factory.setRepository(repository);
 
-			ResultSet rs = statement.getGeneratedKeys();
-			rs.next();
-			String image_id = rs.getString(1);
+				// Create a new file upload handler
+				ServletFileUpload upload = new ServletFileUpload(factory);
 
-			sql = "INSERT INTO perms (image_id, user_id) values (?, ?)";
-			PreparedStatement st = con.prepareStatement(sql);
-			st.setString(1, image_id);
-			st.setString(2, request.getSession().getAttribute("user").toString());
-			st.executeUpdate();
+				//alternative way to get a input stream.
+				FileItemIterator items2 = upload.getItemIterator(request);
+				FileItemStream fileStream = items2.next();
+				InputStream iis = fileStream.openStream();
 
-			response.sendRedirect("main.jsp");
-		} 
-		catch (SQLException | FileUploadException e) 
-		{
-			throw new ServletException(e);
-		}		
+				// Parse the request
+				//				List<FileItem> items = upload.parseRequest(request);
+				//				FileItem file = items.iterator().next();
+				//				InputStream iis = file.getInputStream();
+
+				Connection con = DB.getConnection();
+
+				String sql = "INSERT INTO images (jpeg, owner) values (?, ?)";
+				PreparedStatement statement = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+				statement.setBlob(1, iis);
+				statement.setString(2, request.getSession().getAttribute("user").toString());
+				statement.executeUpdate();
+
+				ResultSet rs = statement.getGeneratedKeys();
+				rs.next();
+				String image_id = rs.getString(1);
+
+				sql = "INSERT INTO perms (image_id, user_id) values (?, ?)";
+				PreparedStatement st = con.prepareStatement(sql);
+				st.setString(1, image_id);
+				st.setString(2, request.getSession().getAttribute("user").toString());
+				st.executeUpdate();
+
+				response.sendRedirect("main.jsp");
+			} 
+			catch (SQLException | FileUploadException e) 
+			{
+				throw new ServletException(e);
+			}
+		}
 	}
-
 }

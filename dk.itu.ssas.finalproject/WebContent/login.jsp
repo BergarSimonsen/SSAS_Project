@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" 
     import = "java.sql.*"
-    import = "dk.itu.ssas.finalproject.DB"
-    import = "dk.itu.ssas.finalproject.MD5Converter"
-    import = "dk.itu.ssas.finalproject.Utils"
+    import = "dk.itu.ssas.project.DB"
+    import = "dk.itu.ssas.project.MD5Converter"
+    import = "dk.itu.ssas.project.Utils"
 %>
 <%
 	final String SQL_SELECT = "SELECT id FROM users WHERE username= ? AND password= ?"; 

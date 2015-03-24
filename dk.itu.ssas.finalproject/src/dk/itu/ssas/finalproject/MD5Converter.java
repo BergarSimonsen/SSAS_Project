@@ -1,4 +1,4 @@
-package dk.itu.ssas.finalproject;
+package dk.itu.ssas.project;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -22,6 +22,9 @@ public class MD5Converter {
 		} catch (NoSuchAlgorithmException e) {
 			throw new RuntimeException(e);
 		}
+		
+		System.out.println("Original: " + s);
+		System.out.println("Hash: " + hashtext);
 		
 		return hashtext;
 	}

@@ -1,4 +1,4 @@
-package dk.itu.ssas.finalproject;
+package dk.itu.ssas.project;
 
 import java.sql.Connection;
 import java.sql.SQLException;

@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import = "java.sql.*"
-    import = "dk.itu.ssas.finalproject.MD5Converter"
-    import = "dk.itu.ssas.finalproject.DB" 
+    import = "dk.itu.ssas.project.MD5Converter"
+    import = "dk.itu.ssas.project.DB" 
 %>
 <% 
 	final String SQL_SELECT = "SELECT * FROM users WHERE username = ?";
