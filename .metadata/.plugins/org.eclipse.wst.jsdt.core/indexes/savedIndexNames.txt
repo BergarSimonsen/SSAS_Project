@@ -1,6 +1,0 @@
-INDEX VERSION 1.122+/home/SSAS/development/SSAS_Project/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-2119899533.index
-3447819290.index
-3328727585.index
-3663808352.index
-1288387145.index

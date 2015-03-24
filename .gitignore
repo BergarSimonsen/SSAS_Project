@@ -3,7 +3,7 @@
 
 #ignoring eclipse stuff
 .metadata/
-*.classpath
+.classpath
 .project
 
 dk.itu.ssas.project/.settings
