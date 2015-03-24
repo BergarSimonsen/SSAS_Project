@@ -2,14 +2,14 @@
 *.*~
 
 #ignoring eclipse stuff
-/.metadata/
+.metadata/
 *.classpath
 .project
 
-/dk.itu.ssas.project/.settings
-/dk.itu.ssas.project/build
-/dk.itu.ssas.project/WebContent/WEB-INF/
-/dk.itu.ssas.project/WebContent/META-INF/
+dk.itu.ssas.project/.settings
+dk.itu.ssas.project/build
+dk.itu.ssas.project/WebContent/WEB-INF/
+dk.itu.ssas.project/WebContent/META-INF/
 
 #
 /bin/
