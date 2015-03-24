@@ -14,12 +14,10 @@ public class DB {
 		// Better way to do this is setting database connect info in
 		// servlet context; but for the SSAS project, that just adds
 		// complications. 
-		MysqlDataSource ds = null;
-		
-			ds = new MysqlDataSource();
-			ds.setUrl(URL);
-			ds.setUser(USER);
-			ds.setPassword(PASSWORD);
-			return ds.getConnection();
+		MysqlDataSource ds = new MysqlDataSource();
+		ds.setUrl(URL);
+		ds.setUser(USER);
+		ds.setPassword(PASSWORD);
+		return ds.getConnection();
 	}
 }

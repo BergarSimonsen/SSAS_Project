@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.FileItemIterator;
+import org.apache.tomcat.util.http.fileupload.FileItemStream;
 import org.apache.tomcat.util.http.fileupload.FileUploadException;
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
@@ -28,18 +30,23 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 public class Uploader extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Uploader() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
+	//check the form token
+		
+//		if (!request.getParameter("token").equals(request.getSession().getAttribute("secret"))){
+//			throw new ServletException("Stop - Where did you get that form?");
+//		}
+					
+	//check the user is authorized
+		
+		
+	//do the upload
+
 		try {
 			// Create a factory for disk-based file items
 			DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -52,10 +59,15 @@ public class Uploader extends HttpServlet {
 			// Create a new file upload handler
 			ServletFileUpload upload = new ServletFileUpload(factory);
 
+			//alternative way to get a input stream.
+			FileItemIterator items2 = upload.getItemIterator(request);
+			FileItemStream fileStream = items2.next();
+			InputStream iis = fileStream.openStream();
+			
 			// Parse the request
-			List<FileItem> items = upload.parseRequest(request);
-			FileItem file = items.iterator().next();
-			InputStream iis = file.getInputStream();
+//			List<FileItem> items = upload.parseRequest(request);
+//			FileItem file = items.iterator().next();
+//			InputStream iis = file.getInputStream();
 			
 			Connection con = DB.getConnection();
 
@@ -79,8 +91,7 @@ public class Uploader extends HttpServlet {
 		} 
 		catch (SQLException | FileUploadException e) 
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new ServletException(e);
 		}		
 	}
 

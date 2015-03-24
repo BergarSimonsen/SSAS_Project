@@ -20,7 +20,7 @@ public class MD5Converter {
 			  hashtext = "0"+hashtext;
 			}
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		
 		return hashtext;

@@ -3,7 +3,6 @@
     import = "dk.itu.ssas.project.Utils"%>
 <%
 	if(session != null) {
-		System.out.println(session.getAttribute("user"));
 		session.setAttribute("user", null);
 		session.setAttribute("username", null);
 		session = null;
@@ -11,6 +10,7 @@
 
 response.sendRedirect("index.jsp");
 %>
+<!DOCTYPE html>
 <html>
 <head>
 	<title> <%= Utils.TITLE + " | logout" %> </title>

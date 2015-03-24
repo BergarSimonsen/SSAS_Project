@@ -3,6 +3,7 @@
     import = "java.sql.*"
     import = "dk.itu.ssas.project.DB"
     import = "dk.itu.ssas.project.MD5Converter"
+    import = "dk.itu.ssas.project.Utils"
 %>
 <%
 	final String SQL_SELECT = "SELECT id FROM users WHERE username= ? AND password= ?"; 
@@ -23,6 +24,7 @@
     	// Have a result; user is authenticated.
     	session.setAttribute("user", rs.getString(1));
     	session.setAttribute("username", user);
+    	session.setAttribute("secret", Utils.getRandomSecret());
     	response.sendRedirect("main.jsp");
     } else {
     	// No result; user failed to authenticate; try again.
