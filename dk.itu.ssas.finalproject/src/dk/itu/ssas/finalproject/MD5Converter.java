@@ -23,9 +23,6 @@ public class MD5Converter {
 			throw new RuntimeException(e);
 		}
 		
-		System.out.println("Original: " + s);
-		System.out.println("Hash: " + hashtext);
-		
 		return hashtext;
 	}
 }
