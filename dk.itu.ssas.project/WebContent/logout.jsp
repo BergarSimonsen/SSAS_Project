@@ -3,8 +3,10 @@
     import = "dk.itu.ssas.project.Utils"%>
 <%
 	if(session != null) {
-		session.setAttribute("user", null);
-		session.setAttribute("username", null);
+		session.removeAttribute("user");
+		session.removeAttribute("username");
+		session.removeAttribute("secret");
+		session.invalidate();
 		session = null;
 	}
 

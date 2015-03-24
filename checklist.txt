@@ -1,10 +1,10 @@
 * Security checklist
 ** Web-server
-   - [ ] upload pictures 
-   - [ ] share his own pictures with other named other users on a picture-by-picture basis
-   - [ ] view his own pictures and pictures other has shared with him
-   - [ ] comment on any picture he can view
-   - [ ] view comments on any picture he can view
+   - [x] upload pictures 
+   - [x] share his own pictures with other named other users on a picture-by-picture basis
+   - [x] view his own pictures and pictures other has shared with him
+   - [x] comment on any picture he can view
+   - [x] view comments on any picture he can view
     
    - [ ] A non-trivial but easy to find backdoor for attaining root access to the system hosting the web-server.
    - [ ] A very hard to find backdoor for attaining root access to the system hosting the web-server.
