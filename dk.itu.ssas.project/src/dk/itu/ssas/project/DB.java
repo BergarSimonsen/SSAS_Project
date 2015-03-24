@@ -2,6 +2,7 @@ package dk.itu.ssas.project;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 public class DB {

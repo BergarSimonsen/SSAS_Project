@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import = "dk.itu.ssas.project.Utils"%>
+    import = "dk.itu.ssas.finalproject.Utils"%>
 <%
 	if(session != null) {
 		session.setAttribute("user", null);

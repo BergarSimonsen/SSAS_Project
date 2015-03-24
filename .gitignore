@@ -1,25 +1,19 @@
-
 # Emacs backup files
 *.*~
 
 #ignoring eclipse stuff
-
-/Servers/
-/Servers2/
 /.metadata/
 *.classpath
-*.project
+.project
 
 /dk.itu.ssas.project/.settings
 /dk.itu.ssas.project/build
-
-/dk.itu.ssas.finalproject/.settings
-/dk.itu.ssas.finalproject/build
-
-
+/dk.itu.ssas.project/WebContent/WEB-INF/
+/dk.itu.ssas.project/WebContent/META-INF/
 
 #
 /bin/
 
 # copy script
-copy.sh
+to_git.sh
+from_git.sh
