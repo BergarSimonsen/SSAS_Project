@@ -13,7 +13,7 @@
 	<% if (request.getParameter("login_failure") != null) { %>
 	<h3>Login failure. Try again?</h3>
 	<% } %>
-	<form method="get" action="login.jsp">
+	<form method="post" action="Login">
 		Username: <input type="text" name="username"><br> 
 		Password: <input type="text" name="password"><br>		
 		<input type="reset" value="Reset">
@@ -23,7 +23,7 @@
 	<% if (request.getParameter("create_failure") != null) { %>
 	<h3>Username already taken. Try again?</h3>
 	<% } %>
-	<form method="get" action="register.jsp">
+	<form method="post" action="Register">
 		Username: <input type="text" name="username" /><br> 
 		Password: <input type="password" name="password" /><br>
 		<input type="reset" value="Reset">

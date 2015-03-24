@@ -90,14 +90,15 @@ ul {
         }
  %>
  <br>
-   <form action="Comment" method="post">
+		<form action="Comment" method="post">
         	<input type='text' name='comment'>
             <input type="submit" value="Post comment!">
             <input type="hidden" name="user_id" value='<%= user %>'>
             <input type="hidden" name="image_id" value='<%= image_id %>'>
             <input type="hidden" name="token" value="<%= session.getAttribute("secret") %>">		
-   		 </form>	
+   		</form>	
    		<br>
+   		
    		<form action="Invite" method="post">
    			<input type='text' name='other'>
             <input type="submit" value="Share image!">
@@ -105,6 +106,7 @@ ul {
             <input type="hidden" name="token" value="<%= session.getAttribute("secret") %>">		
    		</form>
    		<br>
+   		
 	 </li>       
 <%
 	} } else {

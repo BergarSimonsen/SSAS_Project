@@ -28,6 +28,11 @@ public class Downloader extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
+	//check the user is authorized
+		
+		
+	//send the image	
+		
 		try 
 		{
 			Connection con = DB.getConnection();
