@@ -8,11 +8,49 @@ import java.security.SecureRandom;
 public class Utils {
 	private static SecureRandom random;
 	
+	private static String[] htmlSymbols = new String[] {
+		"&", 
+		"<", 
+		">", 
+		"\"", 
+		"'", 
+		"/"
+		};
+	
+	private static String[] escapeSymbols = new String[] {
+		"&amp;", 
+		"&lt;", 
+		"&gt;", 
+		"&quot;", 
+		"&#x27;", 
+		"&#x2F;"
+		};
+	
 	public static boolean isSessionValid(HttpSession session) {
 		if(session.getAttribute("user") == null || session.getAttribute("user").toString().length() == 0) return false;
 		if(session.getAttribute("username") == null || session.getAttribute("username").toString().length() == 0) return false;
 		return true;
 	}
+	
+	/**
+	 * Escape a html String, making it safe to insert into database
+	 */
+	public static String escapeHtml(String input) {
+		String retval = "";
+		
+		
+		// Check that htmlSymbols.length == escapeSymbols.length
+		if(htmlSymbols.length == escapeSymbols.length) {
+			retval = input;
+			for(int i = 0; i < htmlSymbols.length; i++) {
+				retval = retval.replace(htmlSymbols[i], escapeSymbols[i]);
+			}
+		} 
+		
+		return retval;
+	}
+	
+	
 	
 	public static final String TITLE = "SSAS Photo Sharing Webapp";
 	

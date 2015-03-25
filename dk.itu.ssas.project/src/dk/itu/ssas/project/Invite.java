@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Invite")
 public class Invite extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	private static final String INSERT_PERM = "INSERT INTO perms (image_id, user_id) SELECT ?, users.id FROM users WHERE users.username = ?";
 
 
@@ -25,31 +25,27 @@ public class Invite extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	//check the form token
-		
+
+		//check the form token
 		if (!request.getParameter("token").equals(request.getSession().getAttribute("secret"))){
 			throw new ServletException("Stop - Where did you get that form?");
 		}
-					
-	//check the user is authorized
-		
-		
-	//do the insert	
-		
-		try
-		{
-			Connection con = DB.getConnection();
-			PreparedStatement st = con.prepareStatement(INSERT_PERM);
-			st.setString(1, request.getParameter("image_id"));
-			st.setString(2, request.getParameter("other"));
-			st.executeUpdate();
-					
-			response.sendRedirect("main.jsp");
-		}
-		catch (SQLException e) 
-		{
-			throw new ServletException(e);
+
+		//check that the user is authorized
+		if(Utils.isSessionValid(request.getSession())) {
+			//do the insert	
+			try {
+				Connection con = DB.getConnection();
+				PreparedStatement st = con.prepareStatement(INSERT_PERM);
+				st.setString(1, request.getParameter("image_id"));
+				st.setString(2, request.getParameter("other"));
+				st.executeUpdate();
+
+				response.sendRedirect("main.jsp");
+			}
+			catch (SQLException e) {
+				throw new ServletException(e);
+			}
 		}
 	}
 }

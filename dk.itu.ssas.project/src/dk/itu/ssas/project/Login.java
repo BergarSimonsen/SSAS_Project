@@ -33,7 +33,7 @@ public class Login extends HttpServlet {
 			throw new ServletException("Stop - Where did you get that form?");
 		}
 		
-	//check the user credentials
+	//create user
 	    
 	    try {
 			

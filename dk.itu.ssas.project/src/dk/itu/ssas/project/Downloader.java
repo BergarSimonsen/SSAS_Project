@@ -26,29 +26,34 @@ public class Downloader extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	//check the user is authorized
 		
 		
-	//send the image	
+	//send the image
+
+	// Check that the user is authenticated
 		
-		try 
-		{
-			Connection con = DB.getConnection();
-			String image_id = request.getParameter("image_id");
+		if(Utils.isSessionValid(request.getSession())) {
 			
-			PreparedStatement st = con.prepareStatement(SELECT_IMAGE);
-			st.setString(1, image_id);
-			ResultSet image = st.executeQuery();
-			image.next();
-			byte[] content = image.getBytes("jpeg");
-			response.setContentType("image/jpeg");
-			response.setContentLength(content.length);
-			response.getOutputStream().write(content);		
-		}
-		catch (SQLException e) {
-			throw new ServletException(e);
+			try 
+			{
+				Connection con = DB.getConnection();
+				String image_id = request.getParameter("image_id");
+				
+				PreparedStatement st = con.prepareStatement(SELECT_IMAGE);
+				st.setString(1, image_id);
+				ResultSet image = st.executeQuery();
+				image.next();
+				byte[] content = image.getBytes("jpeg");
+				response.setContentType("image/jpeg");
+				response.setContentLength(content.length);
+				response.getOutputStream().write(content);		
+			}
+			catch (SQLException e) {
+				throw new ServletException(e);
+			}
 		}
 	}
 }
