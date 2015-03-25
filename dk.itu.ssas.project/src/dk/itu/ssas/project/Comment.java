@@ -25,15 +25,20 @@ public class Comment extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//check the form token
-		if (!request.getParameter("token").equals(request.getSession().getAttribute("secret"))){
-			throw new ServletException("Stop - Where did you get that form?");
-		}
 		
-
+			if (!request.getParameter("token").equals(request.getSession().getAttribute("secret"))){
+				throw new ServletException("Stop - Where did you get that form?");
+			}
+		
 		//check the user is authorized
-		if (Utils.isSessionValid(request.getSession())) {
-			//do the insert	
+			
+			if (!Utils.isSessionValid(request.getSession()))
+				throw new ServletException("Not authorized");
+				
+		//do the insert
+				
 			try {
+				
 				Connection con = DB.getConnection();
 				
 				// escape html tags in comment
@@ -43,15 +48,13 @@ public class Comment extends HttpServlet {
 				st.setString(1, request.getParameter("image_id"));
 				st.setString(2, request.getParameter("user_id"));
 				st.setString(3, comment);
-//				st.setString(3, request.getParameter("comment"));
 				st.executeUpdate();
 
 				response.sendRedirect("main.jsp");
-			}
-			catch (Exception e)	{
+				
+			} catch (Exception e) {
 				throw new ServletException(e);
 			}
-		}
 
 
 	}
