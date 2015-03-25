@@ -25,9 +25,7 @@ public class Register extends HttpServlet {
 		
 	//check the form token
 		
-		if (!request.getParameter("token").equals(session.getAttribute("secret"))){
-			throw new ServletException("Stop - Where did you get that form?");
-		}
+		Utils.checkFormToken(request);
 		
 	//create user
 
@@ -60,4 +58,5 @@ public class Register extends HttpServlet {
 			throw new ServletException(e);
 		}
 	}
+
 }

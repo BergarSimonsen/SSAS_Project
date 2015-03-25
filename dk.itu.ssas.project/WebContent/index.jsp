@@ -5,10 +5,8 @@
 <%
 
 	if (session != null){
-		if (session.isNew()){
-		   	session.setAttribute("username", "anonymous");
+		if (session.getAttribute("secret") == null)
 		   	session.setAttribute("secret", Utils.getRandomSecret());
-		}
 	}
 	
 

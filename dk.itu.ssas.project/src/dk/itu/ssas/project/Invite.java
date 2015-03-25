@@ -27,25 +27,25 @@ public class Invite extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//check the form token
-		if (!request.getParameter("token").equals(request.getSession().getAttribute("secret"))){
-			throw new ServletException("Stop - Where did you get that form?");
-		}
+		
+			Utils.checkFormToken(request);
 
 		//check that the user is authorized
-		if(Utils.isSessionValid(request.getSession())) {
-			//do the insert	
-			try {
-				Connection con = DB.getConnection();
-				PreparedStatement st = con.prepareStatement(INSERT_PERM);
-				st.setString(1, request.getParameter("image_id"));
-				st.setString(2, request.getParameter("other"));
-				st.executeUpdate();
-
-				response.sendRedirect("main.jsp");
+			
+			if(Utils.isSessionValid(request.getSession())) {
+				//do the insert	
+				try {
+					Connection con = DB.getConnection();
+					PreparedStatement st = con.prepareStatement(INSERT_PERM);
+					st.setString(1, request.getParameter("image_id"));
+					st.setString(2, request.getParameter("other"));
+					st.executeUpdate();
+	
+					response.sendRedirect("main.jsp");
+				}
+				catch (SQLException e) {
+					throw new ServletException(e);
+				}
 			}
-			catch (SQLException e) {
-				throw new ServletException(e);
-			}
-		}
 	}
 }

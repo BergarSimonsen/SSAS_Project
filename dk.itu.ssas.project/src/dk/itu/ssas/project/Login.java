@@ -1,12 +1,15 @@
 package dk.itu.ssas.project;
 import java.io.IOException;
 import java.sql.*;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import dk.itu.ssas.project.errorHandling.ClientInputException;
 
 /**
  * Servlet implementation class Login
@@ -23,9 +26,7 @@ public class Login extends HttpServlet {
 
 		//check the form token
 		
-			if (!request.getParameter("token").equals(request.getSession().getAttribute("secret"))){
-				throw new ServletException("Stop - Where did you get that form?");
-			}
+			Utils.checkFormToken(request);
 
 		//check the user credentials.
 

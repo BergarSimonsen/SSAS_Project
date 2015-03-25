@@ -26,9 +26,7 @@ public class Comment extends HttpServlet {
 
 		//check the form token
 		
-			if (!request.getParameter("token").equals(request.getSession().getAttribute("secret"))){
-				throw new ServletException("Stop - Where did you get that form?");
-			}
+			Utils.checkFormToken(request);
 		
 		//check the user is authorized
 			

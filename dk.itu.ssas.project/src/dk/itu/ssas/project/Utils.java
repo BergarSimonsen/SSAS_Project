@@ -1,6 +1,10 @@
 package dk.itu.ssas.project;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import dk.itu.ssas.project.errorHandling.ClientInputException;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
@@ -68,4 +72,8 @@ public class Utils {
 		return new BigInteger(130, random).toString(32);
 	}
 
+	public static void checkFormToken(HttpServletRequest request) throws ServletException {
+		if (!request.getParameter("token").equals(request.getSession().getAttribute("secret")))
+			throw new ClientInputException("Your page was expired. Please resubmit.");
+	}
 }
