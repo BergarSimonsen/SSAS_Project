@@ -32,8 +32,8 @@ ul {
 
 <p><form method="post" enctype="multipart/form-data" action="Uploader">
 	Add a picture: 
-	<input type="file" name="pic" accept="jpeg">
 	<input type="hidden" name="token" value="<%= session.getAttribute("secret") %>">		
+	<input type="file" name="pic" accept="jpeg">
 	<input type="submit" value="Upload!">
 </form>
 
