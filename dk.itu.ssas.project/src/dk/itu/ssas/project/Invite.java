@@ -30,22 +30,29 @@ public class Invite extends HttpServlet {
 		
 			Utils.checkFormToken(request);
 
+		//Get user id, and at the same time check the user is logged in.
+			
+			String user_id = Utils.getUserId(request);
+
 		//check that the user is authorized
 			
-			if(Utils.isSessionValid(request.getSession())) {
-				//do the insert	
-				try {
-					Connection con = DB.getConnection();
-					PreparedStatement st = con.prepareStatement(INSERT_PERM);
-					st.setString(1, request.getParameter("image_id"));
-					st.setString(2, request.getParameter("other"));
-					st.executeUpdate();
-	
-					response.sendRedirect("main.jsp");
-				}
-				catch (SQLException e) {
-					throw new ServletException(e);
-				}
+			
+		//do the insert
+			
+			try {
+				
+				Connection con = DB.getConnection();
+				PreparedStatement st = con.prepareStatement(INSERT_PERM);
+				st.setString(1, request.getParameter("image_id"));
+				st.setString(2, request.getParameter("other"));
+				st.executeUpdate();
+
+			} catch (SQLException e) {
+				throw new ServletException(e);
 			}
+			
+		//done
+			
+			response.sendRedirect("main.jsp");
 	}
 }

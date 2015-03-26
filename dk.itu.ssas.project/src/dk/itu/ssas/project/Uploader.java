@@ -34,22 +34,33 @@ public class Uploader extends HttpServlet {
 		
 			Utils.checkFormToken(request);
 
+		//Get user id, and at the same time check the user is logged in.
+			
+			String user_id = Utils.getUserId(request);
+			
 		// check that the user is authorized
 			
-			if(Utils.isSessionValid(request.getSession())) {
-				
-				//do the upload
-				
-				Part filePart = request.getPart("pic");
-				
-			    insertImage(request, filePart.getInputStream());
-			}
+			
+		//do the upload
+			
+			Part filePart = request.getPart("pic");
+			
+		    insertImage(user_id, filePart.getInputStream());
+		
+		//done
 			
 			response.sendRedirect("main.jsp");
 	}
 	
 	
-	private void insertImage(HttpServletRequest request, InputStream iis) throws ServletException {
+	/**
+	 * Insert a image into the database for the given user.
+	 * 
+	 * @param user_id
+	 * @param iis
+	 * @throws ServletException
+	 */
+	private void insertImage(String user_id, InputStream iis) throws ServletException {
 
 		try{
 	
@@ -58,7 +69,7 @@ public class Uploader extends HttpServlet {
 			String sql = "INSERT INTO images (jpeg, owner) values (?, ?)";
 			PreparedStatement statement = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 			statement.setBlob(1, iis);
-			statement.setString(2, request.getSession().getAttribute("user").toString());
+			statement.setString(2, user_id);
 			statement.executeUpdate();
 	
 			ResultSet rs = statement.getGeneratedKeys();
@@ -68,7 +79,7 @@ public class Uploader extends HttpServlet {
 			sql = "INSERT INTO perms (image_id, user_id) values (?, ?)";
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, image_id);
-			st.setString(2, request.getSession().getAttribute("user").toString());
+			st.setString(2, user_id);
 			st.executeUpdate();
 		
 		} catch (SQLException e) {

@@ -30,5 +30,11 @@
     <exception-type>java.lang.Throwable</exception-type>
     <location>/ErrorPages/ThrowableExceptionPage.jsp</location>
   </error-page>
+  
+  <!-- everything else -->
+  
+  <error-page>
+	<location>/ErrorPages/GeneralError.html</location>
+  </error-page>
 
 </web-app>

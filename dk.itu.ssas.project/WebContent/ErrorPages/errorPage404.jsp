@@ -1,3 +1,4 @@
 <%@ page isErrorPage="true" import="java.io.*" contentType="text/html"%>
 
-404
+	<a href="index.jsp">Front page</a>
+	404 Not Found

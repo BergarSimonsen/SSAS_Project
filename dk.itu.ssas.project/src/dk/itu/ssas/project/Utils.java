@@ -36,6 +36,16 @@ public class Utils {
 		return true;
 	}
 	
+	public static void assertUserLoggedIn(HttpSession session) {
+		if (!isSessionValid(session))
+			throw new ClientInputException("You must be logged in the view this page.");
+	}
+	
+	public static String getUserId(HttpServletRequest request) {
+		assertUserLoggedIn(request.getSession());
+		return request.getSession().getAttribute("user").toString();
+	}
+	
 	/**
 	 * Escape a html String, making it safe to insert into database
 	 */

@@ -1,15 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page 
+	language="java" 
+	contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
+    
     import = "dk.itu.ssas.project.Utils"
     import = "java.sql.*"
     import = "dk.itu.ssas.project.DB" 
 %>
 <%
-	String user = "";
-	String username = "";
-	if(Utils.isSessionValid(session)) {
-		user = session.getAttribute("user").toString();
-		username = session.getAttribute("username").toString();
+
+	Utils.assertUserLoggedIn(session);
+
+	String user_id = session.getAttribute("user").toString();
+	String username = session.getAttribute("username").toString();
 	
 %>
 <!DOCTYPE html>
@@ -51,7 +54,7 @@ ul {
 	PreparedStatement st3 = con.prepareStatement(SELECT_VIEWERS);
 	PreparedStatement st4 = con.prepareStatement(SELECT_COMMENTS);
 
-	st.setString(1, user);
+	st.setString(1, user_id);
 	ResultSet image_ids = st.executeQuery();
 
 	while (image_ids.next()) {
@@ -93,7 +96,6 @@ ul {
 		<form action="Comment" method="post">
         	<input type='text' name='comment'>
             <input type="submit" value="Post comment!">
-            <input type="hidden" name="user_id" value='<%= user %>'>
             <input type="hidden" name="image_id" value='<%= image_id %>'>
             <input type="hidden" name="token" value="<%= session.getAttribute("secret") %>">		
    		</form>	
@@ -109,8 +111,6 @@ ul {
    		
 	 </li>       
 <%
-	} } else {
-		response.sendRedirect("index.jsp?login_failure=1");
 	}
 %>     
 </ul>   

@@ -27,11 +27,13 @@ public class Comment extends HttpServlet {
 		//check the form token
 		
 			Utils.checkFormToken(request);
+
+		//Get user id, and at the same time check the user is logged in.
+			
+			String user_id = Utils.getUserId(request);
 		
 		//check the user is authorized
-			
-			if (!Utils.isSessionValid(request.getSession()))
-				throw new ServletException("Not authorized");
+				
 				
 		//do the insert
 				
@@ -44,16 +46,17 @@ public class Comment extends HttpServlet {
 
 				PreparedStatement st = con.prepareStatement(INSERT_COMMENT);
 				st.setString(1, request.getParameter("image_id"));
-				st.setString(2, request.getParameter("user_id"));
+				st.setString(2, user_id);
 				st.setString(3, comment);
 				st.executeUpdate();
-
-				response.sendRedirect("main.jsp");
 				
 			} catch (Exception e) {
 				throw new ServletException(e);
 			}
+			
+		//done
 
+			response.sendRedirect("main.jsp");
 
 	}
 
