@@ -3,15 +3,18 @@
 	contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     
-    import = "dk.itu.ssas.project.Utils"
     import = "java.sql.*"
+    import = "org.apache.commons.lang3.StringEscapeUtils"
+
+    import = "dk.itu.ssas.project.Utils"
     import = "dk.itu.ssas.project.DB" 
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 
 	Utils.assertUserLoggedIn(session);
 
-	String user_id = session.getAttribute("user").toString();
+	String user_id	= session.getAttribute("user").toString();
 	String username = session.getAttribute("username").toString();
 	
 %>
@@ -19,7 +22,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SSAS Photo Sharing Project</title>
+<title><c:out value="${Utils.TITLE}" /></title>
 <style>
 * {
 	font-family: helvetica-neue, helvetica, arial;
@@ -31,11 +34,11 @@ ul {
 </style>
 </head>
 <body>
-<p>Hello, <%= username %>! <a href="logout.jsp">Log out</a>
+<p>Hello, <c:out value="${sessionScope.username}" />! <a href="logout.jsp">Log out</a>
 
 <p><form method="post" enctype="multipart/form-data" action="Uploader">
 	Add a picture: 
-	<input type="hidden" name="token" value="<%= session.getAttribute("secret") %>">		
+	<input type="hidden" name="token" value="${sessionScope.secret}">		
 	<input type="file" name="pic" accept="jpeg">
 	<input type="submit" value="Upload!">
 </form>
@@ -64,7 +67,7 @@ ul {
     	  other.next();
     	  String other_name = other.getString(1);
   %>
-	<li> Posted by <%= other_name%>:<br><br>
+	<li> Posted by <%= other_name %>:<br><br>
 	   <img src="Downloader?image_id=<%= image_id %>" width="60%"><br>
 	    Shared with: 
 <%      

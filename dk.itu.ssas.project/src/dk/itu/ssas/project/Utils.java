@@ -10,8 +10,11 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 
 public class Utils {
+
 	private static SecureRandom random;
 	
+	public static final String TITLE = "SSAS Photo Sharing Webapp";
+
 	private static String[] htmlSymbols = new String[] {
 		"&", 
 		"<", 
@@ -64,11 +67,6 @@ public class Utils {
 		return retval;
 	}
 	
-	
-	
-	public static final String TITLE = "SSAS Photo Sharing Webapp";
-	
-	
 	/**
 	 * Generates a random string, which can be used for the secret every user has in his/her session.
 	 * 
@@ -86,4 +84,5 @@ public class Utils {
 		if (!request.getParameter("token").equals(request.getSession().getAttribute("secret")))
 			throw new ClientInputException("Your page was expired. Please resubmit.");
 	}
+	
 }

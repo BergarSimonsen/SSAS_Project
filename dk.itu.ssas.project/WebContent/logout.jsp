@@ -1,6 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page
+	language	="java" 
+	contentType	="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import = "dk.itu.ssas.project.Utils"%>
+    
+    import		= "dk.itu.ssas.project.Utils"
+%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	if(session != null) {
 		session.removeAttribute("user");
@@ -16,7 +21,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> <%= Utils.TITLE + " | logout" %> </title>
+	<title><c:out value="${Utils.TITLE}" /> | logout</title>
 </head>
 <body>
 	<h1> Successfully logged out! </h1>

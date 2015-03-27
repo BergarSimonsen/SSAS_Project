@@ -5,6 +5,7 @@
     import 		= "dk.itu.ssas.project.Utils"
     
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 
 	if (session != null){
@@ -19,7 +20,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><%=Utils.TITLE%></title>
+<title><c:out value="${Utils.TITLE}" /></title>
 </head>
 <body>
 	<h1>SSAS Photo Sharing Webapp</h1>
