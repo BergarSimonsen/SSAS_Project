@@ -7,15 +7,23 @@
     import = "org.apache.commons.lang3.StringEscapeUtils"
 
     import = "dk.itu.ssas.project.Utils"
-    import = "dk.itu.ssas.project.DB" 
+    import = "dk.itu.ssas.project.DB"
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 
-	Utils.assertUserLoggedIn(session);
+	//don't cache
 
-	String user_id	= session.getAttribute("user").toString();
-	String username = session.getAttribute("username").toString();
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+		response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+		response.setDateHeader("Expires", 0); // Proxies.
+
+	//login
+
+		Utils.assertUserLoggedIn(session);
+	
+		String user_id	= session.getAttribute("user").toString();
+		String username = session.getAttribute("username").toString();
 	
 %>
 <!DOCTYPE html>
