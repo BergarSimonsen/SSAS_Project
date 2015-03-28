@@ -3,6 +3,7 @@ package dk.itu.ssas.project;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,25 +31,34 @@ public class Comment extends HttpServlet {
 
 		//Get user id, and at the same time check the user is logged in.
 			
-			String user_id = Utils.getUserId(request);
-		
-		//check the user is authorized
-				
-				
-		//do the insert
+			String user_id	= Utils.getUserId(request);
+			String image_id = request.getParameter("image_id");
 				
 			try {
 				
-				Connection con = DB.getConnection();
-				
-				// escape html tags in comment
-				String comment = Utils.escapeHtml(request.getParameter("comment"));
+				//check the user is authorized
 
-				PreparedStatement st = con.prepareStatement(INSERT_COMMENT);
-				st.setString(1, request.getParameter("image_id"));
-				st.setString(2, user_id);
-				st.setString(3, comment);
-				st.executeUpdate();
+					Connection con = DB.getConnection();
+					PreparedStatement perm_st = con.prepareStatement("SELECT * FROM perms WHERE image_id = ? AND user_id = ?");
+		
+					perm_st.setString(1, image_id);
+					perm_st.setString(2, user_id);
+					ResultSet result = perm_st.executeQuery();
+				
+				if (result.next()){
+
+					//do the insert
+					
+					// escape html tags in comment
+					String comment = Utils.escapeHtml(request.getParameter("comment"));
+
+					PreparedStatement st = con.prepareStatement(INSERT_COMMENT);
+					st.setString(1, image_id);
+					st.setString(2, user_id);
+					st.setString(3, comment);
+					st.executeUpdate();
+					
+				}		
 				
 			} catch (Exception e) {
 				throw new ServletException(e);
