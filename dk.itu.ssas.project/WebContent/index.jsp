@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="dk.itu.ssas.project.tools.Utils"%>
+	pageEncoding="UTF-8" import="dk.itu.ssas.project.Utils"%>
 <!DOCTYPE html>
 <html>
 <head>
