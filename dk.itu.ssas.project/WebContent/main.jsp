@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import = "dk.itu.ssas.project.Utils"
+    import = "dk.itu.ssas.project.tools.Utils"
     import = "java.sql.*"
-    import = "dk.itu.ssas.project.DB" 
+    import = "dk.itu.ssas.project.persistence.DB" 
 %>
 <%
 	String user = "";
