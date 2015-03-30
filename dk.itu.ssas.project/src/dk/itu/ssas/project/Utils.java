@@ -1,13 +1,20 @@
 package dk.itu.ssas.project;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import dk.itu.ssas.project.errorHandling.ClientInputException;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
 public class Utils {
+
 	private static SecureRandom random;
 	
+	public static final String TITLE = "SSAS Photo Sharing Webapp";
+
 	private static String[] htmlSymbols = new String[] {
 		"&", 
 		"<", 
@@ -32,6 +39,16 @@ public class Utils {
 		return true;
 	}
 	
+	public static void assertUserLoggedIn(HttpSession session) {
+		if (!isSessionValid(session))
+			throw new ClientInputException("You must be logged in the view this page.");
+	}
+	
+	public static String getUserId(HttpServletRequest request) {
+		assertUserLoggedIn(request.getSession());
+		return request.getSession().getAttribute("user").toString();
+	}
+	
 	/**
 	 * Escape a html String, making it safe to insert into database
 	 */
@@ -50,14 +67,9 @@ public class Utils {
 		return retval;
 	}
 	
-	
-	
-	public static final String TITLE = "SSAS Photo Sharing Webapp";
-	
-	
 	/**
 	 * Generates a random string, which can be used for the secret every user has in his/her session.
-	 *  
+	 * 
 	 * @return String
 	 */
 	public static String getRandomSecret() {
@@ -68,4 +80,9 @@ public class Utils {
 		return new BigInteger(130, random).toString(32);
 	}
 
+	public static void checkFormToken(HttpServletRequest request) throws ServletException {
+		if (!request.getParameter("token").equals(request.getSession().getAttribute("secret")))
+			throw new ClientInputException("Your page was expired. Please resubmit.");
+	}
+	
 }

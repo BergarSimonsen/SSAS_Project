@@ -22,6 +22,13 @@ public class Register extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		
+	//check the form token
+		
+		Utils.checkFormToken(request);
+		
+	//create user
+
 		try {
 			Connection con = DB.getConnection();
 			String user = request.getParameter("username");
@@ -51,4 +58,5 @@ public class Register extends HttpServlet {
 			throw new ServletException(e);
 		}
 	}
+
 }

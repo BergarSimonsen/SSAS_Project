@@ -1,19 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page
+	language	="java" 
+	contentType	="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import = "dk.itu.ssas.finalproject.Utils"%>
+    
+    import		= "dk.itu.ssas.project.Utils"
+%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	if(session != null) {
-		session.setAttribute("user", null);
-		session.setAttribute("username", null);
+		session.removeAttribute("user");
+		session.removeAttribute("username");
+		session.removeAttribute("secret");
+		session.invalidate();
 		session = null;
 	}
 
-response.sendRedirect("index.jsp");
+	response.sendRedirect("index.jsp");
+	
 %>
 <!DOCTYPE html>
 <html>
 <head>
-	<title> <%= Utils.TITLE + " | logout" %> </title>
+	<title><c:out value="${Utils.TITLE}" /> | logout</title>
 </head>
 <body>
 	<h1> Successfully logged out! </h1>

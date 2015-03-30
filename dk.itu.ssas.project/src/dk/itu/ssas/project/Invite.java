@@ -3,6 +3,7 @@ package dk.itu.ssas.project;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -27,25 +28,41 @@ public class Invite extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//check the form token
-		if (!request.getParameter("token").equals(request.getSession().getAttribute("secret"))){
-			throw new ServletException("Stop - Where did you get that form?");
-		}
+		
+			Utils.checkFormToken(request);
 
-		//check that the user is authorized
-		if(Utils.isSessionValid(request.getSession())) {
-			//do the insert	
+		//Get user id, and at the same time check the user is logged in.
+			
+			String user_id = Utils.getUserId(request);
+			String image_id = request.getParameter("image_id");
+			
 			try {
-				Connection con = DB.getConnection();
-				PreparedStatement st = con.prepareStatement(INSERT_PERM);
-				st.setString(1, request.getParameter("image_id"));
-				st.setString(2, request.getParameter("other"));
-				st.executeUpdate();
+				
+				//check the user is authorized
 
-				response.sendRedirect("main.jsp");
-			}
-			catch (SQLException e) {
+					Connection con = DB.getConnection();
+					PreparedStatement perm_st = con.prepareStatement("SELECT * FROM perms WHERE image_id = ? AND user_id = ?");
+		
+					perm_st.setString(1, image_id);
+					perm_st.setString(2, user_id);
+					ResultSet result = perm_st.executeQuery();
+				
+				if (result.next()){
+					
+					//do the insert
+					
+					PreparedStatement st = con.prepareStatement(INSERT_PERM);
+					st.setString(1, request.getParameter("image_id"));
+					st.setString(2, request.getParameter("other"));
+					st.executeUpdate();
+				}
+
+			} catch (SQLException e) {
 				throw new ServletException(e);
 			}
-		}
+			
+		//done
+			
+			response.sendRedirect("main.jsp");
 	}
 }
