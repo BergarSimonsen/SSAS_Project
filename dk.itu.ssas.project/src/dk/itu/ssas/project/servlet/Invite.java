@@ -1,9 +1,10 @@
-package dk.itu.ssas.project;
+package dk.itu.ssas.project.servlet;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,14 +12,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dk.itu.ssas.project.persistence.DB;
+import dk.itu.ssas.project.tools.Utils;
+
 /**
- * Servlet implementation class Comment
+ * Servlet implementation class Invite
  */
-@WebServlet("/Comment")
-public class Comment extends HttpServlet {
+@WebServlet("/Invite")
+public class Invite extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private final String INSERT_COMMENT = "INSERT INTO comments (image_id, user_id, comment) VALUES(?, ?, ?)";
+	private static final String INSERT_PERM = "INSERT INTO perms (image_id, user_id) SELECT ?, users.id FROM users WHERE users.username = ?";
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -31,9 +36,9 @@ public class Comment extends HttpServlet {
 
 		//Get user id, and at the same time check the user is logged in.
 			
-			String user_id	= Utils.getUserId(request);
+			String user_id = Utils.getUserId(request);
 			String image_id = request.getParameter("image_id");
-				
+			
 			try {
 				
 				//check the user is authorized
@@ -46,28 +51,21 @@ public class Comment extends HttpServlet {
 					ResultSet result = perm_st.executeQuery();
 				
 				if (result.next()){
-
+					
 					//do the insert
 					
-					// escape html tags in comment
-					String comment = Utils.escapeHtml(request.getParameter("comment"));
-
-					PreparedStatement st = con.prepareStatement(INSERT_COMMENT);
-					st.setString(1, image_id);
-					st.setString(2, user_id);
-					st.setString(3, comment);
+					PreparedStatement st = con.prepareStatement(INSERT_PERM);
+					st.setString(1, request.getParameter("image_id"));
+					st.setString(2, request.getParameter("other"));
 					st.executeUpdate();
-					
-				}		
-				
-			} catch (Exception e) {
+				}
+
+			} catch (SQLException e) {
 				throw new ServletException(e);
 			}
 			
 		//done
-
+			
 			response.sendRedirect("main.jsp");
-
 	}
-
 }

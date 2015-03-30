@@ -1,4 +1,4 @@
-package dk.itu.ssas.project;
+package dk.itu.ssas.project.servlet;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+
+import dk.itu.ssas.project.persistence.DB;
+import dk.itu.ssas.project.tools.Utils;
 
 /**
  * Servlet implementation class Uploader

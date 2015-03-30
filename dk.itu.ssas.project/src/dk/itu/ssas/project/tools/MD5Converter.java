@@ -1,4 +1,4 @@
-package dk.itu.ssas.project;
+package dk.itu.ssas.project.tools;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

@@ -1,4 +1,4 @@
-package dk.itu.ssas.project;
+package dk.itu.ssas.project.tools;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
