@@ -36,7 +36,10 @@ public class Login extends HttpServlet {
 
 		//check the user credentials.
 
+			HttpSession current_session = request.getSession();
+			current_session.invalidate();
 			HttpSession session = request.getSession();
+			
 			long current_time = new Date().getTime();
 			long time_diff = current_time - last_attempt_time;
 			
