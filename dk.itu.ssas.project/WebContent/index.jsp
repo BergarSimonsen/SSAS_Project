@@ -2,7 +2,7 @@
 	language	="java" 
 	contentType	="text/html; charset=UTF-8"
     pageEncoding="UTF-8" 
-    import 		= "dk.itu.ssas.project.Utils"
+    import 		= "dk.itu.ssas.project.tools.Utils"
     
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

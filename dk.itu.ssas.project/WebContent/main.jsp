@@ -4,10 +4,9 @@
     pageEncoding="UTF-8"
     
     import = "java.sql.*"
-    import = "org.apache.commons.lang3.StringEscapeUtils"
 
-    import = "dk.itu.ssas.project.Utils"
-    import = "dk.itu.ssas.project.DB"
+    import = "dk.itu.ssas.project.tools.Utils"
+    import = "dk.itu.ssas.project.persistence.DB"
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
