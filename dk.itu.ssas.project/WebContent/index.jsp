@@ -28,13 +28,13 @@
 	<%
 		if (request.getParameter("login_failure") != null) {
 	%>
-	<h3>Login failure. Try again?</h3>
+	<h3><%= (String) session.getAttribute("message") %></h3>
 	<% 
 		} 
 	%>
 	<form method="post" action="Login">
 		Username: <input type="text" name="username"><br> 
-		Password: <input type="text" name="password"><br>
+		Password: <input type="password" name="password"><br>
 		<input type="hidden" name="token" value="<%= session.getAttribute("secret") %>">		
 		<input type="reset" value="Reset">
 		<input type="submit" value="Login">		
