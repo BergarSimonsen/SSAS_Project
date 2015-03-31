@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dk.itu.ssas.project.errorHandling.ClientInputException;
 import dk.itu.ssas.project.persistence.DB;
 import dk.itu.ssas.project.tools.MD5Converter;
 import dk.itu.ssas.project.tools.Utils;
